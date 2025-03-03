@@ -77,4 +77,4 @@ if __name__ == "__main__":
     dir_path = "C:/Users/ASUS/OneDrive/Desktop/shakespearify"
     file_path = os.path.join(dir_path,"data", "final_v3.csv")
     dataset = preprocess_dataset(file_path)
-    print(dataset['train'][0])
+    print(dataset[0])

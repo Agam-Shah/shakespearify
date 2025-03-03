@@ -3,6 +3,7 @@ import spacy
 from datasets import load_dataset
 import pandas as pd
 import os
+from embeddings import create_sent_bert_embeddings
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -65,9 +66,10 @@ def preprocess_row(row):
 
     row['original'] = clean_text(row['original'])
     row['modern'] = clean_text(row['modern'])
-    row['original_tokens'] = tokenize_text(row['original'])
-    row['modern_tokens'] = tokenize_text(row['modern'])
-
+    # row['original_tokens'] = tokenize_text(row['original'])
+    # row['modern_tokens'] = tokenize_text(row['modern'])
+    row['original_embedding'] = create_sent_bert_embeddings(row['original'])
+    row['modern_embedding'] = create_sent_bert_embeddings(row['modern'])
     return row
 
 if __name__ == "__main__":
@@ -75,4 +77,4 @@ if __name__ == "__main__":
     dir_path = "C:/Users/ASUS/OneDrive/Desktop/shakespearify"
     file_path = os.path.join(dir_path,"data", "final_v3.csv")
     dataset = preprocess_dataset(file_path)
-    print(dataset[0:2])
+    print(dataset['train'][0])

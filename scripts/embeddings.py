@@ -21,6 +21,6 @@ def create_sent_bert_embeddings(sentence):
     return outputs.last_hidden_state.mean(dim=1).squeeze().tolist()
 
 
-if __name__ == "__main__":
-    pass
-    # print(create_sent_bert_embeddings("Hello, How are you?"))
+# if __name__ == "__main__":
+#     pass
+#     print(create_sent_bert_embeddings("Hello, How are you?"))

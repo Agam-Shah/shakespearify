@@ -67,19 +67,24 @@ def preprocess_and_save_dataset(file):
         returns processed dataset
     '''
 
-    save_dir = os.path.join(os.getcwd(),"data", "processed")
-    os.makedirs(save_dir, exist_ok=True)
     dataset_dict = load_dataset("csv", data_files=file)
     dataset = dataset_dict['train']
     dataset = dataset.map(preprocess_row, num_proc = 4)
+    print(f"**********Tokenization and Embeddings Done**********\n")
+
+    # Save the embeddings in 'data/processed'
+    save_dir = os.path.join(os.getcwd(), "data", "processed")
+    os.makedirs(save_dir, exist_ok=True)
     dataset.save_to_disk(save_dir)
-    print("Dataset processed and saved")
+    print("**********Dataset Processed and Saved**********\n")
     return dataset
 
 
 
 if __name__ == "__main__":
 
-    dir_path = os.getcwd()
-    file_path = os.path.join(dir_path,"data", "final_v3.csv")
+    file_path = os.path.join(os.getcwd(), "data", "final_v3.csv")
+
+    # Load the raw CSV file and call preprocess.py for feature cleaning and engineering
     dataset = preprocess_and_save_dataset(file_path)
+

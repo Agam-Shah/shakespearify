@@ -1,6 +1,43 @@
-data/processed/
-__pycache__
-scripts/__pycache__
-.pyc
-pyc
-scripts/__pycache__/
+
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VSCode settings and other IDEs
+.vscode/
+
+# Virtual environment
+venv/
+.env/
+env/
+.venv/
+
+# Dataset files (if your data is stored in large files or a folder)
+data/
+*.csv
+*.tsv
+*.json
+*.zip
+*.tar.gz
+
+# Model checkpoints (large model files)
+models/
+*.h5
+*.ckpt
+*.pkl
+
+# HuggingFace cache
+.cache/
+
+# Logs, temporary files, or backups
+*.log
+*.bak
+*.swp
+*.tmp
+

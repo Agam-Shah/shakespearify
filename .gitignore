@@ -1,1 +1,6 @@
 data/processed/
+__pycache__
+scripts/__pycache__
+.pyc
+pyc
+scripts/__pycache__/
